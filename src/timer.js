@@ -1,3 +1,5 @@
+// import enterDate from "./enterDate";
+
 class CountdownTimer {
     constructor({ selector, targetDate }) {
         this.selector = selector;
@@ -19,7 +21,10 @@ class CountdownTimer {
    
     init() {        
         this.intervalID = setInterval(this.updateTimer, 1000)
-           }
+    }
+    stopTimer() {
+        clearInterval(this.intervalID)
+    }
     updateTimer = () => {
             const date = Date.now()
             const deltaTime = this.targetDate.getTime() - date 
@@ -51,14 +56,40 @@ class CountdownTimer {
         return String(value).padStart(2, '0')
     }
 }
-
-
+let date = ''
+// getDate()
 const timer = new CountdownTimer({
     selector: '#timer-1',
-    targetDate: new Date('Dec 21, 2020 15:53:00'),
+    targetDate: new Date('02 22 2021'),
 });
 
+ const refss = {
+    formRef: document.querySelector(".js-form"),
+    inputDay: document.querySelector(".js-form-day"),
+    inputMonth: document.querySelector(".js-form-month"),
+    inputYear: document.querySelector(".js-form-year"),
+    submitbtn: document.querySelector(".submit")
+}
 
 
 
+   
+    
+    refss.formRef.addEventListener('submit', (e) => handleClick(e));
+    
+    function handleClick(e) {
+        e.preventDefault()
+        // let day = refss.inputDay.value
+        // let month = refss.inputMonth.value
+        // let year = refss.inputYear.value
+        // date = new Date(`${month} ${day} ${year}`)
 
+        let dateArray = refss.inputMonth.value.split("-")
+        date = new Date(`${dateArray[1]} ${dateArray[2]} ${dateArray[0]}`)
+        console.log(date)
+        timer.targetDate = date;
+        console.log(timer)
+        timer.stopTimer()
+        timer.init()
+        return date
+    }

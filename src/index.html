@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -5,12 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Timer</title>
+    <!-- <link rel="stylesheet" href="./react-datepicker.min.css"> -->
+    <!-- <style>
+      @import url('https://cdnjs.cloudflare.com/ajax/libs/react-datepicker/2.8.0/react-datepicker.min.css');
+    </style> -->
   </head>
 
   <body >
-  <button type="button" data-action="start">Start</button>
-  <button type="button" data-action="stop">Stop</button>
-
+  <!-- <button type="button" data-action="start">Start</button>
+  <button type="button" data-action="stop">Stop</button> -->
+<div>
+  <p>Введи дату</p>
+  <form id="form" class="js-form" action="#">
+<!-- <input class="js-form-day" type="number" max="30">
+<label for=""></label> -->
+<input class="js-form-month" type="date"max="12">
+<!-- <input class="js-form-year" type="number" min=2020> -->
+<button id="form" class="submit" type="submit">Поехали!</button>
+  </form>
+  
+</div>
   <div class="timer" id="timer-1">
     <div class="field">
       <span class="value" data-value="days">11</span>
