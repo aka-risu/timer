@@ -56,8 +56,7 @@ class CountdownTimer {
         return String(value).padStart(2, '0')
     }
 }
-let date = ''
-// getDate()
+
 const timer = new CountdownTimer({
     selector: '#timer-1',
     targetDate: new Date('02 22 2021'),
@@ -85,10 +84,10 @@ const timer = new CountdownTimer({
         // date = new Date(`${month} ${day} ${year}`)
 
         let dateArray = refss.inputMonth.value.split("-")
-        date = new Date(`${dateArray[1]} ${dateArray[2]} ${dateArray[0]}`)
-        console.log(date)
+        let date = new Date(`${dateArray[1]} ${dateArray[2]} ${dateArray[0]}`)
+       
         timer.targetDate = date;
-        console.log(timer)
+     
         timer.stopTimer()
         timer.init()
         return date
